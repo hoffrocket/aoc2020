@@ -7,8 +7,8 @@ Password = namedtuple("Password", "min max letter password")
 def get_input() -> List[Password]:
     passwords = []
     with open("inputs/day2input.txt", "r") as file:
-        for l in file.readlines():
-            space_parts = l.split(" ")
+        for line in file.readlines():
+            space_parts = line.split(" ")
             range_parts = space_parts[0].split("-")
             letter = space_parts[1][0]
             password = space_parts[2].strip()
