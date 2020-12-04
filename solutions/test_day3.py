@@ -70,7 +70,7 @@ from functools import reduce
 from typing import List
 
 
-def get_input() -> List[List[str]]:
+def get_input() -> List[str]:
     with open("inputs/day3input.txt", "r") as file:
         return [line.strip() for line in file.readlines()]
 
