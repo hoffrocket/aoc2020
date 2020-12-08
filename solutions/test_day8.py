@@ -1,4 +1,4 @@
-from typing import Dict, List, Set, Tuple
+from typing import List
 
 
 def get_input() -> List[str]:
