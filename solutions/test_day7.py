@@ -45,9 +45,8 @@ def test_day7_part2():
     def count_deps(dep_name: str) -> int:
         deps = rules.get(dep_name)
         total_count = 0
-        if deps:
-            for count, bag_name in deps:
-                total_count += count + (count * count_deps(bag_name))
+        for count, bag_name in deps:
+            total_count += count + (count * count_deps(bag_name))
         return total_count
 
     count = count_deps("shiny gold")
