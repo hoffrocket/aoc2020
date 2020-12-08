@@ -42,12 +42,8 @@ def test_day7_part1():
 def test_day7_part2():
     rules = get_rules()
 
-    def count_deps(dep_name: str) -> int:
-        deps = rules.get(dep_name)
-        total_count = 0
-        for count, bag_name in deps:
-            total_count += count + (count * count_deps(bag_name))
-        return total_count
+    def count_deps(root_bag_name: str) -> int:
+        return sum([count + (count * count_deps(bag_name)) for count, bag_name in rules.get(root_bag_name)])
 
     count = count_deps("shiny gold")
     assert count == 5312
