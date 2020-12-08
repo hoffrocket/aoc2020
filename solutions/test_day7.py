@@ -14,7 +14,7 @@ def get_rules() -> Dict[str, List[Tuple[int, str]]]:
                 int(content.split(" ")[0]),
                 " ".join(content.split(" ")[1:3]),
             )
-            for content in line.split(" contain ")[1].replace(".", "").split(", ")
+            for content in line.split(" contain ")[1].split(", ")
             if not content.startswith("no")
         ]
         for line in lines
