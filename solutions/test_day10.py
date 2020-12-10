@@ -35,9 +35,8 @@ def get_path_count(lines: List[int]) -> int:
     def option_count(index: int) -> int:
         if index == item_count - 1:
             return 1
-        cached_val = cache[index]
         if cache[index]:
-            return cached_val
+            return cache[index]
         jolt = lines[index]
         path_indexes = [i for i in range(index + 1, min(index + 4, len(lines))) if lines[i] - jolt <= 3]
 
