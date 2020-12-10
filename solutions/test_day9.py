@@ -1,3 +1,4 @@
+import itertools
 from typing import List
 
 
@@ -6,16 +7,12 @@ def get_input() -> List[int]:
         return [int(line.strip()) for line in file.readlines()]
 
 
-def subwindow(alist, start: int, end: int):
-    return (alist[i] for i in range(start, end))
-
-
 def test_day9_part1():
     lines = get_input()
 
     def is_not_valid(index: int) -> bool:
         current = lines[index]
-        return not any((i for i in range(index - 25, index) if current - lines[i] in subwindow(lines, i, index)))
+        return not any((i for i in range(index - 25, index) if current - lines[i] in itertools.islice(lines, i, index)))
 
     bad_index = next(index for index in range(25, len(lines)) if is_not_valid(index))
 
