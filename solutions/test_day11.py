@@ -1,7 +1,4 @@
-from typing import List
-
-
-def get_input() -> List[int]:
+def get_input() -> str:
     with open("inputs/day11input.txt", "r") as file:
         return file.read()
 
