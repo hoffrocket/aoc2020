@@ -15,7 +15,7 @@ def solution(mem_str, num_turns=2020) -> int:
         prior_turns = spoke_dict[new_num]
         prior_turns.append(turn)
         last_num = new_num
-    print(spoke_dict)
+    # print(spoke_dict)
     return last_num
 
 
