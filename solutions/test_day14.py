@@ -58,16 +58,16 @@ def part2(mem_str) -> int:
     instructions = to_instructions(mem_str)
     memory: Dict[int, int] = {}
     current_mask = ""
+    floating_bits = []
+    overwrite_mask = 0
     for command, value in instructions:
         if command == "mask":
             current_mask = value
+            floating_bits = [len(current_mask) - index - 1 for index, char in enumerate(current_mask) if char == "X"]
+            overwrite_mask = int(current_mask.replace("X", "0"), base=2)
         else:
             location = int(command[4:-1])
             value_int = int(value)
-
-            floating_bits = [len(current_mask) - index - 1 for index, char in enumerate(current_mask) if char == "X"]
-            overwrite_mask = int(current_mask.replace("X", "0"), base=2)
-            # print(floating_bits)
 
             new_location_base = location | overwrite_mask
             for options in itertools.product(range(2), repeat=len(floating_bits)):
